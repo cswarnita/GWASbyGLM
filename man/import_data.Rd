@@ -2,13 +2,16 @@
 % Please edit documentation in R/import.R
 \name{import_data}
 \alias{import_data}
-\title{Function to import}
+\title{Function to import input file}
 \usage{
 import_data(filename)
 }
 \arguments{
 \item{filename}{Name and Location of the file to be imported in txt format}
 }
+\value{
+data file
+}
 \description{
-This is the function to import data. The import data should have information about Phenotype (n by 1 form), Markers (n by m form ) and Covariates (n by t form) with n the number of individuals in row, m number of markers in column and t number of covairates in column
+This is the function to import data. The import data should have information about Phenotype (n by 1 form), Markers (n by m form ) and Covariates (n by t form) with n the number of individuals in row, m number of markers in column and t number of covariates in column
 }

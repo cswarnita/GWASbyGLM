@@ -13,6 +13,9 @@ p_val_GLM(y, X, C = NULL)
 
 \item{C}{Covariates matrix in the form n by t (n is number of individuals in row and t is number of covariates in column)}
 }
+\value{
+p-values
+}
 \description{
-This is the function to calculate and return p-values for each SNPs after testing the association between the Phenotypes and SNP along with their Covairates
+This is the function to calculate and return p-values for each SNPs after testing the association between the Phenotypes and SNP along with their Covariates
 }

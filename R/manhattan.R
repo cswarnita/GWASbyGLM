@@ -1,7 +1,7 @@
 #'  Manhattan Plot
 #'
 #'
-#' @description Function to generate manhattan plot for visual display of significant markers
+#' @description Function to generate Manhattan plot for visual display of significant markers
 #'
 #' @param data the individual and marker information
 #' @param cutoff threshold for identifying the significant SNPs

@@ -13,6 +13,9 @@ PC(PC_no, X, C)
 
 \item{C}{Covariates matrix in the form n by t with n number of individuals and t number of coavariates}
 }
+\value{
+Principle Component Analysis
+}
 \description{
 Removes PCs that are linearly dependent with the given covariates and also user can specify how many PCs to chooose as co-factors
 }

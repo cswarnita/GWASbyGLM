@@ -8,7 +8,7 @@
 #' @param X     Markers data in the form n by m with n number of individuals and m number of markers
 #' @param C     Covariates matrix in the form n by t with n number of individuals and t number of coavariates
 #'
-#'
+#' @return Principle Component Analysis
 #' @export
 #'
 

@@ -19,5 +19,5 @@ manhattan_plot(data, cutoff, p, QTN.position = NULL)
 plots and graphs
 }
 \description{
-Function to generate manhattan plot for visual display of significant markers
+Function to generate Manhattan plot for visual display of significant markers
 }
