@@ -3,7 +3,7 @@
 #'
 #' @description Function to generate Manhattan plot for visual display of significant markers
 #'
-#' @param data the individual and marker information
+#' @param data the individual and marker information (marker map file with m by 3 dimension where m is number of markers in row)
 #' @param cutoff threshold for identifying the significant SNPs
 #' @param p p-value of each markers
 #' @param QTN.position the position of the significant QTN

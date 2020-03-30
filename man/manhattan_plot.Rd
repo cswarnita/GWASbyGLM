@@ -7,7 +7,7 @@
 manhattan_plot(data, cutoff, p, QTN.position = NULL)
 }
 \arguments{
-\item{data}{the individual and marker information}
+\item{data}{the individual and marker information (marker map file with m by 3 dimension where m is number of markers in row)}
 
 \item{cutoff}{threshold for identifying the significant SNPs}
 
