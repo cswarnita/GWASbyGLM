@@ -3,9 +3,7 @@
 \name{import_data}
 \alias{import_data}
 \title{Function to import data file}
-\format{
-matrix
-}
+\format{matrix}
 \usage{
 import_data(filename)
 }
