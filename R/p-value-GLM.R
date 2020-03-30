@@ -14,13 +14,41 @@
 
 ##Function that returns p-value for each SNP for testing association between Phenotype and SNP along with the given Covariates
 
-p_val_GLM=function(y,X,C=NULL){
-  if(!is.null(C)){
-    p= cbind(apply(X,2,function(z){anova(lm(y~z+as.matrix(C)))$"Pr(>F)"[1]}))}
-  else{
-    p= cbind(apply(X,2,function(z){anova(lm(y~z))$"Pr(>F)"[1]}))
-  }
-  p=data.frame("SNP_ID"=cbind(colnames(X)),"p_value"=p)
-  rownames(p)=NULL
-  return(p)
+p_val_GLM=function(y,X,PC=NULL,C=NULL){
+  n=nrow(X)
+  m=ncol(X)
+  P=matrix(NA,1,m)
+  for (i in 1:m){
+    x=X[,i]
+    if(max(x)==min(x)){
+      p=1}else{
+        if(!is.null(C) & !is.null(PC)){
+          Z=as.matrix(cbind(1, PC,C,x))}
+
+        if(!is.null(C) & is.null(PC)){
+          Z=as.matrix(cbind(1,C,x))}
+
+        if(is.null(C) & !is.null(PC)){
+          Z=as.matrix(cbind(1,PC,x))}
+
+        if(is.null(C) & is.null(PC)){
+          Z=as.matrix(cbind(1,x))}
+
+        LHS=t(Z)%*%Z
+        inv=solve(LHS)
+        RHS=t(Z)%*%y
+        b=inv%*%RHS
+        yb=Z%*%b
+        e=y-yb
+        n=length(y)
+        ve=sum(e^2)/(n-1)
+        vt=inv*ve
+        t=b/sqrt(diag(vt))
+        p=2*(1-pt(abs(t),n-2))
+      } #end of testing variation
+    P[i]=p[length(p)]
+  } #end of looping for markers
+
+  return(P)
 }
+
