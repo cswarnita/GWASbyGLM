@@ -11,6 +11,8 @@ p_val_GLM(y, X, PC = NULL, C = NULL)
 
 \item{X}{Marker data in matrix form n by m ( n is number of individual in row and m is marker data in column)}
 
+\item{PC}{Principal Components}
+
 \item{C}{Covariates matrix in the form n by t (n is number of individuals in row and t is number of covariates in column)}
 }
 \value{
