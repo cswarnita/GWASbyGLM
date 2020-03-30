@@ -5,6 +5,7 @@
 #'
 #' @param y Phenotype matrix in the form n by 1 (n is number of individual in rows)
 #' @param X Marker data in matrix form n by m ( n is number of individual in row and m is marker data in column)
+#' @param PC Principal Components
 #' @param C Covariates matrix in the form n by t (n is number of individuals in row and t is number of covariates in column)
 #'
 #' @return p-values
