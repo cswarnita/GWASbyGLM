@@ -12,9 +12,6 @@
 #' @export
 #'
 
-
-
-
 #False Positive
 false_positive=  function (P=P, QTN.position, cutoff){
   #cutoff = cutoff/length(P)
