@@ -1,0 +1,79 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+```{r, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("C:/Users/HP/Desktop/Package_logo.png")
+```
+
+The goal of GWASbyGLM is to perform Genome Wide Association Studies using Generelized linear model.THe final goal is to assess the association of genotypes with traits.
+
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("cswarnita/GWASbyGLM")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(GWASbyGLM)
+## basic example code
+```
+
+##Import Data
+```{r}
+#Import Data
+myGD=import_data(filename = "http://zzlab.net/GAPIT/data/mdp_numeric.txt")
+myGM=import_data(filename = "http://zzlab.net/GAPIT/data/mdp_SNP_information.txt")
+phenotype=import_data(filename="http://zzlab.net/GAPIT/data/CROP545_Phenotype.txt")
+```
+
+##Perform PCA
+```{r}
+#This functions perform Principal Component across the Markers.
+# Exclude PCs linearly dependent with covariates (if there is any covariate information available)
+cofactors_PC= PC(2,myGD[,-1],C=NULL);head(cofactors_PC) 
+```
+
+##Perform GWAS
+```{r}
+#This function returns the p-values for each Markers
+p_val=p_val_GLM(y=phenotype[,-1],X=myGD[,-1],PC=cofactors_PC)
+#Manhattan Plot
+manhattan_plot(data=myGM,cutoff = 0.05,p=p_val)
+
+#QQPlot
+QQPlot_GWAS(p=p_val)
+
+#False Positive
+source("http://zzlab.net/StaGen/2020/R/G2P.R")
+X=myGD[,-1]
+index1to5=myGM[,2]<6
+X1to5 = X[,index1to5] # Subset genotypic matrix based on Chromosome 1-5
+mySim=G2P(X=X1to5,h2=0.75,alpha=1,NQTN=10,distribution="normal")
+y=mySim$y
+fp_GLM=false_positive(P=p_val,QTN.position = mySim$QTN.position,cutoff = 0.05);fp_GLM
+
+```
