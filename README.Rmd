@@ -22,6 +22,7 @@ knitr::opts_chunk$set(
 knitr::include_graphics("C:/Users/HP/Desktop/Package_logo.png")
 ```
 
+##GWASbyGLM
 The goal of GWASbyGLM is to perform Genome Wide Association Studies using Generelized linear model.THe final goal is to assess the association of genotypes with traits.
 
 ## Installation

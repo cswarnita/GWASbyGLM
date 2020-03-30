@@ -4,6 +4,9 @@
 <!-- badges: end -->
 <img src="C:/Users/HP/Desktop/Package_logo.png" width="100%" />
 
+GWASbyGLM
+---------
+
 The goal of GWASbyGLM is to perform Genome Wide Association Studies using Generelized linear model.THe final goal is to assess the association of genotypes with traits.
 
 Installation
